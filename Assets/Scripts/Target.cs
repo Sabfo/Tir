@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour {
+    public GameObject Particle;
+
     private Vector3 vel;
     private float timeX, timeY;
 
@@ -32,6 +34,7 @@ public class Target : MonoBehaviour {
         if (collision.gameObject.name == "Shot(Clone)") {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            Instantiate(Particle, transform.position, Quaternion.identity);
         }
     }
 }
