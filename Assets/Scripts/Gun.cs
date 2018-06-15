@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour {
 
     public void InstantiateTarget(int amount) {
         for(int i = 0; i < amount; i++)
-            Instantiate(originalTarget, new Vector3(Random.Range(40f, 660f), Random.Range(40f, 360f), 2f), Quaternion.identity);
+            Instantiate(originalTarget, new Vector3(Random.Range(50f, 660f), Random.Range(50f, 360f), 2f), Quaternion.identity);
     }
 
     public void Fire() {

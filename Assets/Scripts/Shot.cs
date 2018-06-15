@@ -5,8 +5,8 @@ using UnityEngine;
 public class Shot : MonoBehaviour {
 
 	void Start () {
-		
-	}
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.left * 50f;
+    }
 	
 	void Update () {
         if (Mathf.Abs(transform.position.x - 356f) > 500f || Mathf.Abs(transform.position.y - 203f) > 350f)
