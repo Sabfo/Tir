@@ -18,7 +18,7 @@ public class Target : MonoBehaviour {
 	
 	void Update () {
 
-        if (Mathf.Abs(transform.position.x - 356f) > 330f && timeX + 1 < Time.fixedTime) {
+        if (Mathf.Abs(transform.position.x - 326f) > 330f && timeX + 1 < Time.fixedTime) {
             vel.x *= -1;
             timeX = Time.fixedTime;
         }

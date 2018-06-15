@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shot : MonoBehaviour {
 
 	void Start () {
-        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.left * 50f;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.left * 40f;
     }
 	
 	void Update () {

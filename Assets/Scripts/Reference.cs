@@ -60,5 +60,8 @@ public class Reference : MonoBehaviour {
         Shots = GameObject.FindGameObjectsWithTag("Shot");
         foreach (GameObject obj in Shots)
             Destroy(obj);
+        Shots = GameObject.FindGameObjectsWithTag("Explosion");
+        foreach (GameObject obj in Shots)
+            Destroy(obj);
     }
 }

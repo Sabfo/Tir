@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Target
   - Shot
+  - Explosion
   layers:
   - Default
   - TransparentFX
