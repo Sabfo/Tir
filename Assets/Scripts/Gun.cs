@@ -14,7 +14,8 @@ public class Gun : MonoBehaviour {
 
     private void OnEnable() {
         startTime = Time.fixedTime;
-        InstantiateTarget(amountTargets);
+        for (int i = 0; i < amountTargets; i++)
+            Instantiate(originalTarget, new Vector3(Random.Range(50f, 660f), Random.Range(50f, 360f), 2f), Quaternion.identity);
     }
 
     void Start () {
@@ -31,10 +32,6 @@ public class Gun : MonoBehaviour {
 
     private void LookAtMouse() {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Vector3 diff = mousePos - transform.position;
-        //diff.Normalize();
-        //float rotation_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0f, 0f, rotation_z);
         float angle = Vector2.Angle(Vector2.right, mousePos - transform.position);
         transform.eulerAngles = new Vector3(0f, 0f, transform.position.y < mousePos.y ? angle : -angle);
     }
@@ -62,11 +59,6 @@ public class Gun : MonoBehaviour {
     public float getStartTime()
     {
         return startTime;
-    }
-
-    public void InstantiateTarget(int amount) {
-        for(int i = 0; i < amount; i++)
-            Instantiate(originalTarget, new Vector3(Random.Range(50f, 660f), Random.Range(50f, 360f), 2f), Quaternion.identity);
     }
 
     public void Fire() {

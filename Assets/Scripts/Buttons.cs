@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Buttons : MonoBehaviour {
 
     private GameObject PauseMenu, Interface, MainMenu, Gun, Camera;
-    private Text txtState, txtTarget, txtTime;
 
 	void Start () {
         Camera = GameObject.Find("Main Camera");
@@ -14,9 +13,6 @@ public class Buttons : MonoBehaviour {
         Interface = Camera.GetComponent<Reference>().Interface;
         PauseMenu = Camera.GetComponent<Reference>().PauseMenu;
         MainMenu = Camera.GetComponent<Reference>().MainMenu;
-        txtState = Camera.GetComponent<Reference>().txtState;
-        //txtTime = Camera.GetComponent<Reference>().txtTime;
-        //txtTarget = Camera.GetComponent<Reference>().txtTarget;
     }
 	
 	void Update () {
@@ -29,7 +25,7 @@ public class Buttons : MonoBehaviour {
         switch (gameObject.name)
         {
             case "modeEasy":
-                Gun.GetComponent<Gun>().setAmountTargets(5);
+                Gun.GetComponent<Gun>().setAmountTargets(7);
                 Gun.GetComponent<Gun>().setTimeForGame(30);
                 Gun.SetActive(true);
                 MainMenu.SetActive(false);
@@ -38,7 +34,7 @@ public class Buttons : MonoBehaviour {
                 Time.timeScale = 1;
                 break;
             case "modeNormal":
-                Gun.GetComponent<Gun>().setAmountTargets(15);
+                Gun.GetComponent<Gun>().setAmountTargets(18);
                 Gun.GetComponent<Gun>().setTimeForGame(20);
                 Gun.SetActive(true);
                 MainMenu.SetActive(false);
@@ -48,7 +44,7 @@ public class Buttons : MonoBehaviour {
                 break;
             case "modeHard":
                 Gun.GetComponent<Gun>().setAmountTargets(30);
-                Gun.GetComponent<Gun>().setTimeForGame(5);
+                Gun.GetComponent<Gun>().setTimeForGame(10);
                 Gun.SetActive(true);
                 MainMenu.SetActive(false);
                 PauseMenu.SetActive(false);
@@ -57,7 +53,7 @@ public class Buttons : MonoBehaviour {
                 break;
             case "Pause":
                 Time.timeScale = 0;
-                txtState.text = "PAUSE";
+                Camera.GetComponent<Reference>().EndGame("PAUSE");
                 PauseMenu.SetActive(true);
                 Interface.SetActive(false);
                 break;

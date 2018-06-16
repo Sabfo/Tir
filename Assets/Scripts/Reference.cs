@@ -25,12 +25,12 @@ public class Reference : MonoBehaviour {
         if(Time.timeScale != 0) {
             Targets = GameObject.FindGameObjectsWithTag("Target");
             if(Targets.Length != oldValue) { 
-                textTarget.text = "Targets destroy: " + (Gun.GetComponent<Gun>().getAmountTargets() - Targets.Length) + " / " + Gun.GetComponent<Gun>().getAmountTargets();
+                textTarget.text = (Gun.GetComponent<Gun>().getAmountTargets() - Targets.Length) + " / " + Gun.GetComponent<Gun>().getAmountTargets();
                 oldValue = Targets.Length;
             }
             if (Time.time + 1 > oldTime) { 
-                oldTime++;
-                textTime.text = "Time: " + oldTime + " / " + Gun.GetComponent<Gun>().getTimeForGame();
+                oldTime++;  
+                textTime.text = oldTime + " / " + Gun.GetComponent<Gun>().getTimeForGame();
             }
             if (Targets.Length == 0)
                 EndGame("WIN");
@@ -45,8 +45,11 @@ public class Reference : MonoBehaviour {
             t = Gun.GetComponent<Gun>().getTimeForGame();
         else
             t = Time.fixedTime - Gun.GetComponent<Gun>().getStartTime();
-        txtTime.text = "Time: " + t + " / " + Gun.GetComponent<Gun>().getTimeForGame();
-        txtTarget.text = "Targets destroy: " + (Gun.GetComponent<Gun>().getAmountTargets() - Targets.Length) + " / " + Gun.GetComponent<Gun>().getAmountTargets();
+        int r = (int)(t * 100f);
+        t = r;
+        t /= 100f;
+        txtTime.text = t + " / " + Gun.GetComponent<Gun>().getTimeForGame();
+        txtTarget.text = (Gun.GetComponent<Gun>().getAmountTargets() - Targets.Length) + " / " + Gun.GetComponent<Gun>().getAmountTargets();
         txtState.text = state;
         PauseMenu.SetActive(true);
         Interface.SetActive(false);
